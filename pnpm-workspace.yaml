@@ -1,0 +1,5 @@
+# 这个文件用于 pnpm Monorepo 多包管理。
+# 它告诉 pnpm，所有 packages/ 目录下的子项目都属于 workspace。
+# 可以让多个子项目共享依赖、减少重复安装、提高管理效率。
+packages:
+ - "packages/*"

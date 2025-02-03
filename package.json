@@ -1,0 +1,39 @@
+{
+  "name": "sj-element",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --filter @sj-element/play dev",
+    "docs:dev": "pnpm --filter @sj-element/docs dev",
+    "docs:build": "pnpm --filter @sj-element/docs build",
+    "test": "echo \"todo\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^20.17.16",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vue/tsconfig": "^0.5.1",
+    "postcss-color-mix": "^1.1.0",
+    "postcss-each": "^1.1.0",
+    "postcss-each-variables": "^0.3.0",
+    "postcss-for": "^2.1.1",
+    "postcss-nested": "^6.2.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.14",
+    "vitest": "^1.6.1",
+    "vue-tsc": "^1.8.27"
+  },
+  "dependencies": {
+    "@sj-element/hooks": "workspace:*",
+    "@sj-element/theme": "workspace:*",
+    "@sj-element/utils": "workspace:*",
+    "lodash-es": "^4.17.21",
+    "sj-element": "workspace:*",
+    "vue": "^3.4.19"
+  }
+}
