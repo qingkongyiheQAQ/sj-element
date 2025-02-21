@@ -2,8 +2,8 @@
 </script>
 
 <template>
-  <SjButton>1</SjButton>
-  <sj-button>11111</sj-button>
+  <sj-button type="success" size="small">11111</sj-button>
+  <sj-button type="primary" size="big">11111</sj-button>
 </template>
 
 <style scoped>

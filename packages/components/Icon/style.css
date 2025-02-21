@@ -1,0 +1,19 @@
+.sj-icon {
+  --sj-icon-color: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* fill 用于设置 SVG 的填充颜色，这里 currentColor 让 SVG 图标的颜色跟随 color 变化 */
+  fill: currentColor;
+  color: var(--sj-icon-color);
+  font-size: inherit;
+}
+
+@each $val in primary, info, success, warning, danger {
+  .sj-icon--$(val) {
+    --sj-icon-color: var(--sj-color-$(
+        val)
+    );
+}
+}
