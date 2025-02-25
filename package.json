@@ -1,14 +1,14 @@
 {
-  "name": "sj-element",
-  "version": "1.0.0",
+  "name": "@sj-element/workspace",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm --filter @sj-element/play dev",
+    "dev": "pnpm run build && pnpm --filter @sj-element/play dev",
     "docs:dev": "pnpm --filter @sj-element/docs dev",
     "docs:build": "pnpm --filter @sj-element/docs build",
     "test": "pnpm --filter @sj-element/components test",
-    "story": "pnpm --filter @sj-element/play storybook",
+    "story": "pnpm run build && pnpm --filter @sj-element/play storybook",
     "build": "pnpm --filter sj-element build"
   },
   "keywords": [],

@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from "@vitejs/plugin-vue"
 import { resolve } from 'path'
 import { readdirSync, readdir } from "fs";
-import { delay, defer, filter, map } from "lodash-es";
+import { filter, map } from "lodash-es";
 // 打包类型
 import dts from 'vite-plugin-dts'
 // 获取 packages / components 目录下的所有组件文件夹
@@ -18,10 +18,7 @@ function getDirectoriesSync(basePath: string) {
 }
 
 export default defineConfig({
-  plugins: [vue(),dts({
-    tsconfigPath:'../../tsconfig.build.json',
-    outDir:'dist/types'
-  })],
+  plugins: [vue()],
   build: {
     // 指定 `UMD` 打包输出目录
     outDir: 'dist/es',
