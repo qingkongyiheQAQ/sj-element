@@ -4,7 +4,7 @@ import type {CollapseItemProps} from './types'
 import {inject,computed} from 'vue'
 import { COLLAPSE_CTX_KEY } from './constants';
 // 如果爆红直接重启ts服务器即可 没有反应过来
-import { SjIcon } from 'sj-element';
+import { SjIcon } from '../../components';
 import transitionEvents from "./transitionEvents";
 
 defineOptions({

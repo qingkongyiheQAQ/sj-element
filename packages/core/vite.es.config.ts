@@ -37,7 +37,7 @@ export default defineConfig({
     outDir: "dist/types",
   }),
   hooks({
-    rmFiles: ["./dis t/theme", "./dist/types"],
+    rmFiles: ["./dist/es","./dist/theme", "./dist/types"],
     afterBuild: moveStyles,
   }),
   ],

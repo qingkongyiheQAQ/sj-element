@@ -23,7 +23,7 @@ export default defineConfig({
       include: /.(cjs|css)$/i,
     }),
     hooks({
-      rmFiles: [ "./dist/index.css"],
+      rmFiles: ["./dist/umd","./dist/index.css"],
       afterBuild: moveStyles,
     }),
    ],
