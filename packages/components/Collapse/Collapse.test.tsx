@@ -3,7 +3,8 @@ import { DOMWrapper, mount, type VueWrapper } from "@vue/test-utils";
 
 import Collapse from "./Collapse.vue";
 import CollapseItem from "./CollapseItem.vue";
-
+console.log('测试时 Collapse 组件:', Collapse);
+console.log('测试时 CollapseItem 组件:', CollapseItem);
 const onChange = vi.fn();
 
 let wrapper: VueWrapper,
