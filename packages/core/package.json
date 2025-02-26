@@ -42,7 +42,8 @@
   },
   "devDependencies": {
     "@sj-element/components": "workspace:*",
-    "vite-plugin-dts": "^3.9.1"
+    "vite-plugin-dts": "^3.9.1",
+    "vite-plugin-compression2": "^1.1.1"
   },
   "peerDependencies": {
     "vue": "^3.4.19"

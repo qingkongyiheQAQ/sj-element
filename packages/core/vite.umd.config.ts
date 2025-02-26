@@ -19,6 +19,9 @@ function moveStyles() {
 export default defineConfig({
   plugins: [
     vue(),
+    compression({
+      include: /.(cjs|css)$/i,
+    }),
     hooks({
       rmFiles: [ "./dist/index.css"],
       afterBuild: moveStyles,

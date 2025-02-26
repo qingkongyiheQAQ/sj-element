@@ -45,6 +45,7 @@
     "@sj-element/utils": "workspace:*",
     "lodash-es": "^4.17.21",
     "sj-element": "workspace:*",
+    "vite-plugin-compression2": "^1.1.1",
     "vue": "^3.4.19"
   }
 }
