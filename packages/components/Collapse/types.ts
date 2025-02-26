@@ -18,6 +18,7 @@ export interface CollapseEmits {
 }
 
 export interface CollapseContext {
+  // 已展开项的数组
   activeNames: Ref<CollapseItemName[]>;
   handleItemClick(name: CollapseItemName): void;
 }

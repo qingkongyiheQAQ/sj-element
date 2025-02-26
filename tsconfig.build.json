@@ -24,17 +24,19 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "types": [
-      "vue"
-    ]
+      "node"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@sj-element/components":["./packages/components"]
+    }
   },
   "include": [
     // 用于es打包生成types
     "packages/core/index.ts",
     "packages/hooks/**/*.ts",
     "packages/utils/**/*.ts",
-    "packages/components/index.ts",
     "packages/components/**/*.ts",
-    "packages/components/**/*.vue"
   ],
   "exclude": ["packages/components/vitest.config.ts"]
 }
