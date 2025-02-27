@@ -16,7 +16,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "preserve", 
     "jsxImportSource": "vue",
     /* Linting */
     "strict": true,
@@ -33,6 +33,7 @@
   },
   "include": [
     // 用于es打包生成types
+    "env.d.ts",
     "packages/core/index.ts",
     "packages/hooks/**/*.ts",
     "packages/utils/**/*.ts",

@@ -1,4 +1,4 @@
-import "sj-element/dist/index.css"
+import "sj-element/dist/theme/index.css"
 /** @type { import('@storybook/vue3').Preview } */
 const preview = {
   parameters: {

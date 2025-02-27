@@ -4,6 +4,10 @@ import { makeInstaller } from '@sj-element/utils'
 import '@sj-element/theme/index.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from "@fortawesome/free-solid-svg-icons"
+import printLogo from './printLogo'
+
+printLogo()
+
 library.add(fas)
 // 这样 Vue 可以 app.use(installer) 来一次性安装所有组件
 const installer=makeInstaller(components)

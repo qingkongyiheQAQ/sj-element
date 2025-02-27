@@ -25,10 +25,12 @@
   ],
   "scripts": {
     "build": "run-p build-es build-umd",
+    "build:watch": "run-p build-es:watch build-umd:watch",
     "build-umd": "vite build --config vite.umd.config.ts",
     "build-es": "vite build --config vite.es.config.ts",
-    "release": "release-it",
-    "move-style": "move-file dist/es/index.css dist/index.css"
+    "build-umd:watch": "vite build --watch --config vite.umd.config.ts",
+    "build-es:watch": "vite build --watch --config vite.es.config.ts",
+    "release": "release-it"
   },
   "keywords": [],
   "author": "",
@@ -41,9 +43,11 @@
     "async-validator": "^4.2.5"
   },
   "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
     "@sj-element/components": "workspace:*",
-    "vite-plugin-dts": "^3.9.1",
-    "vite-plugin-compression2": "^1.1.1"
+    "terser": "^5.39.0",
+    "vite-plugin-compression2": "^1.1.1",
+    "vite-plugin-dts": "^3.9.1"
   },
   "peerDependencies": {
     "vue": "^3.4.19"

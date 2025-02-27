@@ -5,11 +5,17 @@ import { readdirSync, readdir } from "fs";
 import { delay, defer, filter, map } from "lodash-es";
 import shell from "shelljs";
 import hooks from './hooksPlugin'
+import terser from '@rollup/plugin-terser'
 
 // 打包类型
 import dts from 'vite-plugin-dts'
 
 const TRY_MOVE_STYLES_DELAY = 800 as const;
+
+const isProd = process.env.NODE_ENV === "production";
+const isDev = process.env.NODE_ENV === "development";
+const isTest = process.env.NODE_ENV === "test";
+
 
 // 获取 packages / components 目录下的所有组件文件夹
 function getDirectoriesSync(basePath: string) {
@@ -40,11 +46,38 @@ export default defineConfig({
     rmFiles: ["./dist/es","./dist/theme", "./dist/types"],
     afterBuild: moveStyles,
   }),
+  terser({
+    compress: {
+      sequences: isProd,
+      arguments: isProd,
+      drop_console: isProd && ["log"],
+      drop_debugger: isProd,
+      passes: isProd ? 4 : 1,
+      global_defs: {
+        "@DEV": JSON.stringify(isDev),
+        "@PROD": JSON.stringify(isProd),
+        "@TEST": JSON.stringify(isTest),
+      },
+    },
+    format: {
+      semicolons: false,
+      shorthand: isProd,
+      braces: !isProd,
+      beautify: !isProd,
+      comments: !isProd,
+    },
+    mangle: {
+      toplevel: isProd,
+      eval: isProd,
+      keep_classnames: isDev,
+      keep_fnames: isDev,
+    },
+  }),
   ],
   build: {
     // 指定 `UMD` 打包输出目录
     outDir: 'dist/es',
-    minify: false,
+    minify: "terser",
     cssCodeSplit: true,
     // 告诉 Vite 你要构建一个库（Library），而不是普通的 Vue 项目。
     lib: {
