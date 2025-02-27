@@ -10,7 +10,7 @@ next:
 ## 安装
 
 ```bash
-npm i @eric-ui --save
+npm i @sj-element --save
 ```
 
 ## 开始使用
@@ -19,18 +19,18 @@ npm i @eric-ui --save
 
 ```js
 // 引入所有组件
-import EricUI from "toy-element";
+import SjUI from "sj-element";
 // 引入样式
-import "toy-element/dist/index.css";
+import "sj-element/dist/index.css";
 
 import App from "./App.vue";
 // 全局使用
-createApp(App).use(ErElement).mount("#app");
+createApp(App).use(SjElement).mount("#app");
 ```
 
 ```vue
 <template>
-  <er-button>我是 Button</er-button>
+  <sj-button>我是 Button</sj-button>
 </template>
 ```
 
@@ -40,12 +40,12 @@ Eric-UI 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
 
 ```vue
 <template>
-  <er-button>我是 Button</er-button>
+  <sj-button>我是 Button</sj-button>
 </template>
 <script>
-import { ErButton } from " toy-element";
+import { SjButton } from " toy-element";
 export default {
-  components: { ErButton },
+  components: { SjButton },
 };
 </script>
 ```
