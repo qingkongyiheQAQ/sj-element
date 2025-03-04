@@ -40,7 +40,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@popperjs/core": "^2.11.8",
-    "async-validator": "^4.2.5"
+    "async-validator": "^4.2.5",
+    "rollup-plugin-visualizer": "^5.14.0"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",

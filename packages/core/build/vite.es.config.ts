@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from "@vitejs/plugin-vue"
+import {visualizer} from 'rollup-plugin-visualizer'
 import { resolve } from 'path'
 import { readdirSync, readdir } from "fs";
 import { delay, defer, filter, map } from "lodash-es";
@@ -38,6 +39,9 @@ function moveStyles() {
 
 export default defineConfig({
   plugins: [vue(),
+    visualizer({
+      filename: "dist/stats.es.html",
+    }),
   dts({
     tsconfigPath: "../../tsconfig.build.json",
     outDir: "dist/types",
@@ -82,7 +86,7 @@ export default defineConfig({
     // 告诉 Vite 你要构建一个库（Library），而不是普通的 Vue 项目。
     lib: {
       // 组件库入口文件
-      entry: resolve(__dirname, "./index.ts"),
+      entry: resolve(__dirname, "../index.ts"),
       // 决定 UMD 模式下的全局变量名称
       name: "SjElement",
       // 打包后的文件名

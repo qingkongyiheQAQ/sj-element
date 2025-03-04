@@ -3,6 +3,7 @@ import { compression } from 'vite-plugin-compression2'
 import { resolve } from 'path'
 import { readFile } from "fs";
 import { delay, defer } from "lodash-es";
+import { visualizer } from 'rollup-plugin-visualizer'
 
 import shell from "shelljs";
 import vue from "@vitejs/plugin-vue"
@@ -17,6 +18,7 @@ const isTest = process.env.NODE_ENV === "test";
 const TRY_MOVE_STYLES_DELAY = 800 as const;
 
 function moveStyles() {
+  //异步优化打包 不阻塞主进程
   readFile("./dist/umd/index.css.gz", (err) => {
     if (err) return delay(moveStyles, TRY_MOVE_STYLES_DELAY);
     defer(() => shell.cp("./dist/umd/index.css", "./dist/index.css"));
@@ -25,7 +27,10 @@ function moveStyles() {
 
 export default defineConfig({
   plugins: [
-    vue(),
+    vue(), 
+    visualizer({
+      filename: "dist/stats.umd.html",
+    }),
     compression({
       include: /.(cjs|css)$/i,
     }),
@@ -52,7 +57,7 @@ export default defineConfig({
     // 告诉 Vite 你要构建一个库（Library），而不是普通的 Vue 项目。
     lib:{
       // 组件库入口文件
-      entry: resolve(__dirname,"./index.ts"),
+      entry: resolve(__dirname,"../index.ts"),
       // 决定 UMD 模式下的全局变量名称
       name: "SjElement",
       // 打包后的文件名
