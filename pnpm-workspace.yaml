@@ -3,3 +3,4 @@
 # 可以让多个子项目共享依赖、减少重复安装、提高管理效率。
 packages:
  - "packages/*"
+ - "_node_modules/*"
