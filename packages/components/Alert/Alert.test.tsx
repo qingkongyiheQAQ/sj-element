@@ -3,7 +3,7 @@ import type { AlertType } from "./types";
 import { describe, it, expect, vi } from "vitest";
 import { mount } from "@vue/test-utils";
 import { withInstall } from "@sj-element/utils";
-// import { SjAlert } from "./index";
+import { SjAlert } from "./index";
 
 import Alert from "./Alert.vue";
 import SjIcon from "../Icon/Icon.vue";
@@ -134,23 +134,23 @@ describe("Alert.vue", () => {
   });
 });
 
-// describe("Alert/index", () => {
-//   it("should be exported with withInstall()", () => {
-//     expect(SjAlert.install).toBeDefined();
-//   });
-//   it("component should be exported", () => {
-//     expect(SjAlert).toBe(Alert);
-//   });
+describe("Alert/index", () => {
+  it("should be exported with withInstall()", () => {
+    expect(SjAlert.install).toBeDefined();
+  });
+  it("component should be exported", () => {
+    expect(SjAlert).toBe(Alert);
+  });
 
-//   // 可选
-//   it("should enhance Alert component", () => {
-//     const enhancedAlert = withInstall(Alert);
-//     expect(enhancedAlert).toBe(SjAlert);
-//   });
+  // 可选
+  it("should enhance Alert component", () => {
+    const enhancedAlert = withInstall(Alert);
+    expect(enhancedAlert).toBe(SjAlert);
+  });
 
-//   // 可选
-//   it("should apply specific enhance", () => {
-//     const enhancedAlert = withInstall(Alert);
-//     expect(enhancedAlert).toHaveProperty("install");
-//   });
-// });
+  // 可选
+  it("should apply specific enhance", () => {
+    const enhancedAlert = withInstall(Alert);
+    expect(enhancedAlert).toHaveProperty("install");
+  });
+});

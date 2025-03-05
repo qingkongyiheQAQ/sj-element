@@ -5,7 +5,8 @@ import { resolve } from 'path'
 import { readdirSync, readdir } from "fs";
 import { delay, defer, filter, map } from "lodash-es";
 import shell from "shelljs";
-import hooks from './hooksPlugin'
+// 记得先在全局package.json中dependencies中添加@sj-element/vite-plugins
+import { hooksPlugin as hooks } from '@sj-element/vite-plugins'
 import terser from '@rollup/plugin-terser'
 
 // 打包类型

@@ -7,7 +7,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 import shell from "shelljs";
 import vue from "@vitejs/plugin-vue"
-import hooks from './hooksPlugin'
+import { hooksPlugin as hooks } from '@sj-element/vite-plugins'
 import terser from '@rollup/plugin-terser'
 
 const isProd = process.env.NODE_ENV === "production";
