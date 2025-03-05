@@ -51,8 +51,9 @@ export default {
 ```
 
 
-::: api-table src=components/Button/types.ts
-:::
+<!-- ::: preview
+api-table src=components/Button/types.ts
+::: -->
 
 ## 亮点
 

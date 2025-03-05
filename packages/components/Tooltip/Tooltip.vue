@@ -2,7 +2,7 @@
 import type { TooltipProps, TooltipEmits, TooltipInstance } from "./types";
 import { createPopper, type Instance } from "@popperjs/core";
 import { ref, watchEffect, watch, computed, onUnmounted, type Ref } from "vue";
-import { bind, debounce, isNil, type DebouncedFunc } from "lodash-es";
+import { bind, debounce, type DebouncedFunc } from "lodash-es";
 import { useClickOutside } from "@sj-element/hooks";
 import useEventsToTiggerNode from "./useEventsToTiggerNode";
 
@@ -104,22 +104,22 @@ function setVisible(val: boolean) {
 
 function attachEvents() {
   if (props.disabled || props.manual) return;
-  if(props.trigger ==="hover"){
-    events.value["mouseenter"] = openFinal;
-    outerEvents.value["mouseleave"] = closeFinal;
-    dropdownEvents.value["mouseenter"] = openFinal;
-    return;
-  }
-  if(props.trigger==="click"){
-    events.value["click"] = togglePopper;
-  }
-  if(props.trigger==="contextmenu"){
-    events.value["contextmenu"] = (e)=>{
-      e.preventDefault();
-      openFinal();
-    }
-  }
-  // triggerStrategyMap.get(props.trigger)?.();
+  // if(props.trigger ==="hover"){
+  //   events.value["mouseenter"] = openFinal;
+  //   outerEvents.value["mouseleave"] = closeFinal;
+  //   dropdownEvents.value["mouseenter"] = openFinal;
+  //   return;
+  // }
+  // if(props.trigger==="click"){
+  //   events.value["click"] = togglePopper;
+  // }
+  // if(props.trigger==="contextmenu"){
+  //   events.value["contextmenu"] = (e)=>{
+  //     e.preventDefault();
+  //     openFinal();
+  //   }
+  // }
+  triggerStrategyMap.get(props.trigger)?.();
 }
 function resetEvents() {
   events.value = {};
@@ -170,7 +170,6 @@ watch(
 let popperInstance: null | Instance;
 
 function destroyPopperInstance() {
-  if(isNil(popperInstance)) return;
     popperInstance?.destroy();
     popperInstance = null;
 }
@@ -194,7 +193,6 @@ useEventsToTiggerNode(props, triggerNode, events, () => {
   openDebounce?.cancel();
   setVisible(false);
 });
-
 
 onUnmounted(() => {
   destroyPopperInstance();

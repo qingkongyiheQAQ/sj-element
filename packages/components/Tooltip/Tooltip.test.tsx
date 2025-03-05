@@ -167,93 +167,94 @@ describe("Tooltip.vue", () => {
     await vi.runAllTimers();
     expect(wrapper.find(".sj-tooltip__popper").exists()).toBeTruthy();
 
-    // wrapper.setProps({ trigger: "click" });
-    // await vi.runAllTimers();
-    // virtualRef.dispatchEvent(new Event("click"));
-    // await vi.runAllTimers();
-    // expect(wrapper.find(".sj-tooltip__popper").exists()).toBeTruthy();
+    wrapper.setProps({ trigger: "click" });
+    await vi.runAllTimers();
+    virtualRef.dispatchEvent(new Event("click"));
+    await vi.runAllTimers();
+    expect(wrapper.find(".sj-tooltip__popper").exists()).toBeTruthy();
 
-    // wrapper.unmount();
+    wrapper.unmount();
   });
 
-  // test("change trigger prop", async () => {
-  //   const wrapper = mount(Tooltip, {
-  //     props: { trigger: "hover", content: "test" },
-  //   });
+  test("change trigger prop", async () => {
+    const wrapper = mount(Tooltip, {
+      props: { trigger: "hover", content: "test" },
+    });
 
-  //   wrapper.setProps({ trigger: "click" });
+    wrapper.setProps({ trigger: "click" });
 
-  //   await vi.runAllTimers();
-  //   wrapper.find(".sj-tooltip__trigger").trigger("click");
+    await vi.runAllTimers();
+    wrapper.find(".sj-tooltip__trigger").trigger("click");
 
-  //   await vi.runAllTimers();
-  //   expect(wrapper.find(".sj-tooltip__popper").exists()).toBeTruthy();
+    await vi.runAllTimers();
+    expect(wrapper.find(".sj-tooltip__popper").exists()).toBeTruthy();
 
-  //   wrapper.find(".sj-tooltip__trigger").trigger("click");
+    wrapper.find(".sj-tooltip__trigger").trigger("click");
 
-  //   await vi.runAllTimers();
+    await vi.runAllTimers();
 
-  //   wrapper.find(".sj-tooltip__trigger").trigger("hover");
+    wrapper.find(".sj-tooltip__trigger").trigger("hover");
 
-  //   await vi.runAllTimers();
-  //   expect(wrapper.find(".sj-tooltip__popper").exists()).toBeFalsy();
-  // });
+    await vi.runAllTimers();
+    expect(wrapper.find(".sj-tooltip__popper").exists()).toBeFalsy();
+  });
 
-  // test("change manual prop", async () => {
-  //   const wrapper = mount(Tooltip, {
-  //     props: { trigger: "hover", content: "test" },
-  //   });
+  test("change manual prop", async () => {
+    const wrapper = mount(Tooltip, {
+      props: { trigger: "hover", content: "test" },
+    });
 
-  //   wrapper.setProps({ manual: true });
-  //   await vi.runAllTimers();
+    wrapper.setProps({ manual: true });
+    await vi.runAllTimers();
 
-  //   wrapper.find(".sj-tooltip__trigger").trigger("hover");
+    wrapper.find(".sj-tooltip__trigger").trigger("hover");
 
-  //   await vi.runAllTimers();
-  //   expect(wrapper.find(".sj-tooltip__popper").exists()).toBeFalsy();
+    await vi.runAllTimers();
+    expect(wrapper.find(".sj-tooltip__popper").exists()).toBeFalsy();
 
-  //   wrapper.setProps({ manual: false, trigger: "contextmenu" });
+    wrapper.setProps({ manual: false, trigger: "contextmenu" });
 
-  //   await vi.runAllTimers();
+    await vi.runAllTimers();
 
-  //   wrapper.find(".sj-tooltip__trigger").trigger("contextmenu");
+    wrapper.find(".sj-tooltip__trigger").trigger("contextmenu");
 
-  //   await vi.runAllTimers();
-  //   expect(wrapper.find(".sj-tooltip__popper").exists()).toBeTruthy();
-  // });
+    await vi.runAllTimers();
+    expect(wrapper.find(".sj-tooltip__popper").exists()).toBeTruthy();
+  });
 
-  // test("click-outside disabled when trigger prop is hover or manual mode", async () => {
-  //   const wrapper = mount(
-  //     () => (
-  //       <div>
-  //         <div id="outside"></div>
-  //         <Tooltip
-  //           content="hello tooltip"
-  //           trigger="hover"
-  //           {...{ onVisibleChange }}
-  //         >
-  //           <button id="trigger">trigger</button>
-  //         </Tooltip>
-  //       </div>
-  //     ),
-  //     {
-  //       attachTo: document.body,
-  //     }
-  //   );
-  //   const triggerArea = wrapper.find("#trigger");
-  //   expect(triggerArea.exists()).toBeTruthy();
-  //   expect(wrapper.find(".sj-tooltip__popper").exists()).toBeFalsy();
+  test("click-outside disabled when trigger prop is hover or manual mode", async () => {
+    const wrapper = mount(
+      () => (
+        <div>
+          <div id="outside"></div>
+          <Tooltip
+            content="hello tooltip"
+            trigger="hover"
+            {...{ onVisibleChange }}
+          >
+            <button id="trigger">trigger</button>
+          </Tooltip>
+        </div>
+      ),
+      {
+        attachTo: document.body,
+      }
+    );
+    const triggerArea = wrapper.find("#trigger");
+    expect(triggerArea.exists()).toBeTruthy();
+    expect(wrapper.find(".sj-tooltip__popper").exists()).toBeFalsy();
 
-  //   // 弹出层是否出现
-  //   wrapper.find(".sj-tooltip__trigger").trigger("mouseenter");
-  //   await vi.runAllTimers();
-  //   expect(wrapper.find(".sj-tooltip__popper").exists()).toBeTruthy();
+    // 弹出层是否出现
+    wrapper.find(".sj-tooltip__trigger").trigger("mouseenter");
+    await vi.runAllTimers();
+    expect(wrapper.find(".sj-tooltip__popper").exists()).toBeTruthy();
 
-  //   // trigger:hover外层点击不触发
-  //   wrapper.get("#outside").trigger("click");
-  //   await vi.runAllTimers();
-  //   expect(wrapper.find(".sj-tooltip__popper").exists()).toBeTruthy();
-  //   // 注销流程
-  //   wrapper.unmount();
-  // });
+    // trigger:hover外层点击不触发
+    wrapper.get("#outside").trigger("click");
+    await vi.runAllTimers();
+    expect(wrapper.find(".sj-tooltip__popper").exists()).toBeTruthy();
+    // 注销流程
+    wrapper.unmount();
+  });
+  
 });
