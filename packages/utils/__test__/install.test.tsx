@@ -4,6 +4,7 @@ import { defineComponent, createApp } from "vue";
 
 import { withInstall } from "../install";
 import makeInstaller from '../../core/makeInstaller'
+
 const AppComp = defineComponent({
   setup() {
     return () => <div>App</div>;
