@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { addUnit } from "@sj-element/utils";
-// import { useLocale } from "@sj-element/hooks";
+import { useLocale } from "@sj-element/hooks";
 import type { TooltipInstance } from "../Tooltip"; 
 import type { PopconfirmProps, PopconfirmEmits } from "./types";
 
@@ -16,8 +16,6 @@ defineOptions({
 const props = withDefaults(defineProps<PopconfirmProps>(), {
   title: "",
   confirmButtonType: "primary",
-  cancelButtonText: "No",
-  confirmButtonText: "Yes",
   icon: "question-circle",
   iconColor: "#f90",
   hideAfter: 200,
@@ -27,8 +25,9 @@ const props = withDefaults(defineProps<PopconfirmProps>(), {
 const emits = defineEmits<PopconfirmEmits>();
 const tooltipRef = ref<TooltipInstance>();
 const style = computed(() => ({ width: addUnit(props.width) }));
+const {t}=useLocale();
+console.log(t("some.translation.key"));
 
-// const locale = useLocale();
 
 function hidePopper() {
   tooltipRef.value?.hide();
@@ -43,6 +42,8 @@ function cancel(e: MouseEvent) {
   emits("cancel", e);
   hidePopper();
 }
+
+
 </script>
 
 <template>
@@ -60,7 +61,7 @@ function cancel(e: MouseEvent) {
             :type="cancelButtonType"
             @click="cancel"
           >
-            {{ cancelButtonText  }}
+            {{ cancelButtonText || t("popconfirm.cancelButtonText") }}
           </sj-button>
           <sj-button
             class="sj-popconfirm__confirm"
@@ -68,7 +69,7 @@ function cancel(e: MouseEvent) {
             :type="confirmButtonType"
             @click="confirm"
           >
-            {{ confirmButtonText }}
+            {{ confirmButtonText || t("popconfirm.confirmButtonText") }}
           </sj-button>
         </div>
       </div>

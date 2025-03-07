@@ -45,12 +45,14 @@
     "vite": "^5.4.14",
     "vitepress": "1.0.0-rc.44",
     "vitest": "^1.6.1",
-    "vue-tsc": "^1.8.27"
+    "vue-tsc": "^1.8.27",
+    "vue3-i18n": "^1.1.5"
   },
   "dependencies": {
     "@sj-element/hooks": "workspace:*",
     "@sj-element/theme": "workspace:*",
     "@sj-element/utils": "workspace:*",
+    "@sj-element/locale": "workspace:*",
     "@sj-element/vite-plugins": "workspace:*",
     "@vitest/coverage-v8": "^1.6.1",
     "@vue/test-utils": "^2.4.6",

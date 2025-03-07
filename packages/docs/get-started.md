@@ -43,7 +43,7 @@ Eric-UI 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
   <sj-button>我是 Button</sj-button>
 </template>
 <script>
-import { SjButton } from " toy-element";
+import { SjButton } from " sj-element";
 export default {
   components: { SjButton },
 };
