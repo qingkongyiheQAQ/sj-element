@@ -8,7 +8,7 @@
     "dist"
   ],
   "exports": {
-    ".":{
+    ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     }
@@ -22,5 +22,4 @@
     "vue": "^3.4.19",
     "lodash-es": "^4.17.21"
   }
-
 }
