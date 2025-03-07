@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { mount } from "@vue/test-utils";
 import { defineComponent, createApp } from "vue";
 
-import { makeInstaller, withInstall } from "../install";
-
+import { withInstall } from "../install";
+import makeInstaller from '../../core/makeInstaller'
 const AppComp = defineComponent({
   setup() {
     return () => <div>App</div>;

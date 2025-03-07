@@ -26,7 +26,6 @@ const emits = defineEmits<PopconfirmEmits>();
 const tooltipRef = ref<TooltipInstance>();
 const style = computed(() => ({ width: addUnit(props.width) }));
 const {t}=useLocale();
-console.log(t("some.translation.key"));
 
 
 function hidePopper() {
