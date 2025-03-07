@@ -8,7 +8,7 @@
     "story": "pnpm --filter @sj-element/play storybook",
     "docs:dev": "pnpm --filter @sj-element/docs dev",
     "docs:build": "pnpm --filter @sj-element/docs build",
-    "test": "run-p test-utils test-comp",
+    "test": "run-s test-utils test-comp",
     "test-comp": "cross-env NODE_ENV=test pnpm --filter @sj-element/components test",
     "test-utils": "cross-env NODE_ENV=test pnpm --filter @sj-element/utils test",
     "build": "run-s build-hooks build-comp",
