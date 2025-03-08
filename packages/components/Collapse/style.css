@@ -1,5 +1,5 @@
 .sj-collapse {
-  --sj-collapse-bordsj-color: var(--sj-border-color-light);
+  --sj-collapse-border-color: var(--sj-border-color-light);
   --sj-collapse-header-height: 48px;
   --sj-collapse-header-bg-color: var(--sj-fill-color-blank);
   --sj-collapse-header-text-color: var(--sj-text-color-primary);

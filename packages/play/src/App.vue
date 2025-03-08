@@ -1,44 +1,30 @@
-<script setup lang="ts">
-import { ja, ko, en, zhCn, zhTw, SjConfigProvider } from "sj-element";
-import { get } from "lodash-es";
+<script lang="ts" setup>
+import { SjMessage } from "sj-element";
 
-import { computed, ref,watch } from "vue";
-
-const language = ref("");
-const langMap = {
-  ja,
-  ko,
-  en,
-  zhCn,
-  zhTw,
-} as const;
-console.log("language:", language.value);
-
-const locale = computed(() => get(langMap, language.value));
-
-
-const changelang = () => {
-  const l = ["zhCn", "zhTw", "ko", "en", "ja"];
-  language.value = l[(l.indexOf(language.value) + 1) % l.length];
+const open1 = () => {
+  SjMessage("This is a message.");
 };
-// watch(language, (newLang) => {
-//   console.log("🔍 language 改变:", newLang);
-//   console.log("🔍 计算出的 locale:", locale.value);
-// });
-
-
+const open2 = () => {
+  SjMessage({
+    message: "Congrats, this is a success message.",
+    type: "success",
+  });
+};
+const open3 = () => {
+  SjMessage({
+    message: "Warning, this is a warning message.",
+    type: "warning",
+  });
+};
+const open4 = () => {
+  SjMessage.error("Oops, this is a error message.");
+};
 </script>
+
 <template>
-  <sj-button @click="changelang" type="info" style="margin-right: 20px">change language</sj-button>
-  <sj-config-provider :locale="locale">
-    <sj-popconfirm title="Are you sure to delete this item?">
-      <sj-button>Delete</sj-button>
-    </sj-popconfirm>
-  </sj-config-provider>
-  <sj-popconfirm lang="zhCn" title="111Are you sure to delete this item?">
-    <sj-button>中文</sj-button>
-  </sj-popconfirm>
-
-
-
+  <sj-button :plain="true" @click="open2">Success</sj-button>
+  <sj-button :plain="true" @click="open3">Warning</sj-button>
+  <sj-button :plain="true" @click="open1">Message</sj-button>
+  <sj-button :plain="true" @click="open4">Error</sj-button>
+  <span style="color: var(--sj-color-danger)"> Consistency </span>
 </template>

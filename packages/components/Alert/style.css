@@ -1,6 +1,6 @@
 .sj-alert {
   --sj-alert-padding: 8px 16px;
-  --sj-alert-bordsj-radius-base: var(--sj-border-radius-base);
+  --sj-alert-border-radius-base: var(--sj-border-radius-base);
   --sj-alert-bg-color: var(--sj-color-white);
   --sj-alert-title-font-size: 14px;
   --sj-alert-title-font-size-with-desc: 16px;

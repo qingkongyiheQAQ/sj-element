@@ -4,8 +4,8 @@ import useId from "./useId";
 import useDisabledStyle from "./useDisabledStyle";
 // import useFocusController from "./useFocusController";
 import useLocale from "./useLocale";
-// import useOffset from "./useOffset";
-// import useZIndex from "./useZIndex";
+import useOffset from "./useOffset";
+import useZIndex from "./useZIndex";
 // import useProp from "./useProp";
 
 export {
@@ -14,8 +14,8 @@ export {
   useId,
   useDisabledStyle,
   // useFocusController,
-  // useZIndex,
-  // useOffset,
+  useZIndex,
+  useOffset,
   useLocale,
   // useProp,
 };

@@ -11,3 +11,10 @@ export const withInstall = <T>(component: T) => {
   };
   return component as SFCWithInstall<T>;
 };
+//为methods.ts提供的 this.$message可以直接调用到methods.ts里导出的message
+export const withInstallFunction = <T>(fn: T, name: string) => {
+  (fn as SFCWithInstall<T>).install = (app: App) => {
+    app.config.globalProperties[name] = fn;
+  };
+  return fn as SFCWithInstall<T>;
+};

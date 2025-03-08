@@ -1,0 +1,79 @@
+.sj-message {
+  --sj-message-bg-color: var(--sj-color-info-light-9);
+  --sj-message-border-color: var(--sj-border-color-lighter);
+  --sj-message-padding: 15px 19px;
+  --sj-message-close-size: 16px;
+  --sj-message-close-icon-color: var(--sj-text-color-placeholder);
+  --sj-message-close-hovsj-color: var(--sj-text-color-secondary);
+  --sj-message-icon-size: 16px;
+  --sj-message-icon-margin: 8px;
+}
+
+.sj-message {
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  border-radius: var(--sj-border-radius-base);
+  border-width: var(--sj-border-width);
+  border-style: var(--sj-border-style);
+  border-color: var(--sj-message-border-color);
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  background-color: var(--sj-message-bg-color);
+  padding: var(--sj-message-padding);
+  display: flex;
+  align-items: center;
+  transition: top var(--sj-transition-duration), opacity var(--sj-transition-duration),
+    transform var(--sj-transition-duration);
+  .sj-message__icon {
+    color: var(--sj-message-text-color);
+    font-size: var(--sj-message-icon-size);
+    width: var(--sj-message-icon-size);
+    margin-right: var(--sj-message-icon-margin);
+  }
+  .sj-message__content {
+    color: var(--sj-message-text-color);
+    overflow-wrap: break-word;
+  }
+  &.is-close .sj-message__content {
+    padding-right: 10px;
+  }
+  &.text-center {
+    justify-content: center;
+  }
+  .sj-message__close {
+    display: flex;
+    align-items: center;
+  }
+  .sj-message__close .sj-icon {
+    cursor: pointer;
+  }
+}
+
+@each $val in info, success, warning, danger {
+  .sj-message--$(val) {
+    --sj-message-bg-color: var(--sj-color-$(val)-light-9);
+    --sj-message-border-color: var(--sj-color-$(val)-light-8);
+    --sj-message-text-color: var(--sj-color-$(val));
+    .sj-message__close {
+      --sj-icon-color: var(--sj-color-$(val));
+    }
+  }
+}
+
+.sj-message--error {
+  --sj-message-bg-color: var(--sj-color-danger-light-9);
+  --sj-message-border-color: var(--sj-color-danger-light-8);
+  --sj-message-text-color: var(--sj-color-danger);
+  .sj-message__close {
+    --sj-icon-color: var(--sj-color-danger);
+  }
+}
+
+.sj-message.fade-up-enter-from,
+.sj-message.fade-up-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}
