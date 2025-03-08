@@ -49,6 +49,8 @@ defineExpose<ButtonInstance>({
   size,
   type
 })
+
+  // console.log('Dropdown component mounted!');
 </script>
 
 <template>

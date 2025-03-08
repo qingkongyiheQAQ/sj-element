@@ -10,7 +10,7 @@ import type {
   DropdownInstance,
   DropdownContext,
 } from "./types";
-import { useDisabledStyle } from "@sj-element/hooks";
+import { useId, useDisabledStyle } from "@sj-element/hooks";
 
 import { DROPDOWN_CTX_KEY } from "./constants";
 
@@ -51,15 +51,31 @@ defineExpose<DropdownInstance>({
   open: () => tooltipRef.value?.show(),
   close: () => tooltipRef.value?.hide(),
 });
+
+function toggleDropdown() {
+  console.log('Toggle dropdown clicked');
+  // 直接调用 show() 来显示菜单
+  tooltipRef.value?.show();  // 显示下拉菜单
+}
+// console.log(triggerRef.value);
+// import { onMounted,watch } from 'vue';
+// watch(triggerRef, (val) => {
+//   console.log("triggerref 状态变化:", val);
+// });
+// onMounted(() => {
+//   console.log("visible 状态变化:", triggerRef.value);
+// });
+console.log('split-button:', props.splitButton);
+
 </script>
 
 <template>
-  <div class="sj-dropdown" :class="{ 'is-disabled': props.disabled }">
+  <div class="sj-dropdown" :id="`dropdown-${useId().value}`" :class="{ 'is-disabled': props.disabled }" >
     <sj-tooltip
       ref="tooltipRef"
       v-bind="tooltipProps"
       :virtual-triggering="splitButton"
-      :virtual-ref="triggerRef?.ref.value"
+      :virtual-ref="triggerRef"
       @visible-change="$emit('visible-change', $event)"
     >
       <sj-button-group
@@ -71,18 +87,18 @@ defineExpose<DropdownInstance>({
         <sj-button @click="$emit('click', $event)">
           <slot name="default"></slot>
         </sj-button>
-        <sj-button ref="triggerRef" icon="angle-down" />
+        <sj-button ref="triggerRef" icon="angle-down" @click="toggleDropdown"/>
       </sj-button-group>
-      <slot name="default" v-else></slot>
+      <slot v-else name="default"></slot>
 
       <template #content>
-        <div class="sj-dropdown__menu">
+        <ul class="sj-dropdown__menu">
           <slot name="dropdown">
-            <template v-for="item in items" :key="item.command">
+            <template v-for="item in items" :key="item.command ?? useId().value">
               <dropdown-item v-bind="item" />
             </template>
           </slot>
-        </div>
+        </ul>
       </template>
     </sj-tooltip>
   </div>
@@ -96,4 +112,5 @@ defineExpose<DropdownInstance>({
     padding: 5px 7px;
   }
 }
+
 </style>

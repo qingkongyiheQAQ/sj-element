@@ -36,7 +36,7 @@ createApp(App).use(SjElement).mount("#app");
 
 **单个导入**
 
-Eric-UI 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
+sj-element 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
 
 ```vue
 <template>
@@ -59,9 +59,9 @@ api-table src=components/Button/types.ts
 
 ::: details
 
-- Vite + Vitest + Vitepress 工具链
-- monorepo 分包管理
-- github actions 实现 CI/CD 自动化部署
-- 大模型辅助：使用大模型辅助完成需求分析，设计思路，快速实现组件，提升开发效率。
-- 当然，也会展示 发布“开箱即用” 的 npm 包
+使用 Vite + Vitest + Vitepress 构建工具链，支持快速开发与测试。
+monorepo 分包管理，简化多包管理。
+GitHub Actions 实现 CI/CD 自动化部署。
+大模型辅助开发：利用大模型进行需求分析、设计思路构建与组件实现，提升开发效率。
+发布开箱即用的 npm 包，简化用户使用流程。
   :::

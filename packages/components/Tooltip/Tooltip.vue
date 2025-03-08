@@ -5,11 +5,11 @@ import { ref, watchEffect, watch, computed, onUnmounted, type Ref } from "vue";
 import { bind, debounce, type DebouncedFunc } from "lodash-es";
 import { useClickOutside } from "@sj-element/hooks";
 import useEventsToTiggerNode from "./useEventsToTiggerNode";
-
+import type { ButtonInstance } from "../Button";
 
 //tooltipProps后续会在dropdown组件中使用 所以在上面重新定义一份 单独供Tooltip组件使用
 interface _TooltipProps extends TooltipProps {
-  virtualRef?: HTMLElement | void;  //虚拟触发节点
+  virtualRef?: ButtonInstance | HTMLElement | void;  //虚拟触发节点
   virtualTriggering?: boolean;  //是否开启虚拟触发
 }
 
