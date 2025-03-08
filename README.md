@@ -16,4 +16,4 @@ API 设计一致，用过 Element Plus？直接用，几乎不用额外学习。
 示例代码，提供可直接使用的案例，快速上手。
 清晰易懂，结合文档+示例，降低学习成本。
 🚀 快速开始
-📖 文档地址：Sj-Element 官方文档
+📖 文档地址：[Sj-Element 官方文档](https://qingkongyiheqaq.github.io/sj-element/)
