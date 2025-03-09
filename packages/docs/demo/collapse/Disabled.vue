@@ -6,47 +6,36 @@ const activeNames = ref(['1'])
 
 <template>
   <sj-collapse v-model="activeNames">
-    <sj-collapse-item title="Consistency" name="1">
+    <sj-collapse-item title="法国" name="1">
       <div>
-        Consistent with real life: in line with the process and logic of real
-        life, and comply with languages and habits that the users are used to;
+        法国，以其浪漫的氛围和悠久的历史闻名。巴黎的埃菲尔铁塔、卢浮宫和香榭丽舍大街，吸引了世界各地的游客。
       </div>
       <div>
-        Consistent within interface: all elements should be consistent, such as:
-        design style, icons and texts, position of elements, etc.
+        法国人注重优雅和艺术，浪漫的文化深深植根于日常生活中，从美食到时尚，无不体现着细致入微的设计感。
       </div>
     </sj-collapse-item>
-    <sj-collapse-item title="Feedback" name="2" disabled>
+    <sj-collapse-item title="中国" name="2" >
       <div>
-        Operation feedback: enable the users to clearly perceive their
-        operations by style updates and interactive effects;
+        中国，拥有五千年的历史，是世界上最古老的文明之一。这里的哲学、诗词和艺术深刻影响着全球。
       </div>
       <div>
-        Visual feedback: reflect current state by updating or rearranging
-        elements of the page.
+       中国的传统文化博大精深，从孔子思想到道家哲学，每一部分都为世界文化遗产贡献了重要的智慧。
       </div>
     </sj-collapse-item>
-    <sj-collapse-item title="Efficiency" name="3" disabled>
+    <sj-collapse-item title="英国" name="3">
       <div>
-        Simplify the process: keep operating process simple and intuitive;
+        英国是文学、历史和文化的摇篮。莎士比亚、查尔斯·狄更斯等文学巨匠，创造了许多永恒的经典作品。
       </div>
       <div>
-        Definite and clear: enunciate your intentions clearly so that the users
-        can quickly understand and make decisions;
-      </div>
-      <div>
-        Easy to identify: the interface should be straightforward, which helps
-        the users to identify and frees them from memorizing and recalling.
+        英国的建筑、博物馆、音乐会等，都是世界文化的瑰宝，英国的历史气息和皇家传统也令人神往。
       </div>
     </sj-collapse-item>
-    <sj-collapse-item title="Controllability" name="4">
+    <sj-collapse-item title="美国 禁了" name="4" disabled>
       <div>
-        Decision making: giving advices about operations is acceptable, but do
-        not make decisions for the users;
+        美国是现代文化、科技和经济的重心。这里的创新精神、自由思想和无限机遇吸引了全球各地的人才。
       </div>
       <div>
-        Controlled consequences: users should be granted the freedom to operate,
-        including canceling, aborting or terminating current operation.
+        美国的电影、音乐和科技产业也深刻影响了全球文化，硅谷的创新力与好莱坞的娱乐产业，使得美国成为世界的文化输出大国。
       </div>
     </sj-collapse-item>
   </sj-collapse>

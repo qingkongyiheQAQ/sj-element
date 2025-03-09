@@ -25,7 +25,7 @@ demo-preview=../demo/collapse/Basic.vue
 
 ## 手风琴模式
 
-通过 `accordion` 属性来设置是否以手风琴模式显示。
+通过 accordion 属性可以启用手风琴模式，手风琴模式下，最多只能展开一个面板，展开新的面板时，其他面板会自动收起。
 
 ::: preview
 demo-preview=../demo/collapse/Accordion.vue
