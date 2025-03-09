@@ -19,7 +19,7 @@ npm i @sj-element --save
 
 ```js
 // 引入所有组件
-import SjUI from "sj-element";
+import SjElement from "sj-element";
 // 引入样式
 import "sj-element/dist/index.css";
 
