@@ -1,6 +1,6 @@
 {
   "name": "@sj-element/workspace",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -40,6 +40,7 @@
     "postcss-for": "^2.1.1",
     "postcss-nested": "^6.2.0",
     "release-it": "^18.1.2",
+    "rimraf": "^6.0.1",
     "shelljs": "^0.8.5",
     "typescript": "^5.6.3",
     "vite": "^5.4.14",
@@ -50,9 +51,9 @@
   },
   "dependencies": {
     "@sj-element/hooks": "workspace:*",
+    "@sj-element/locale": "workspace:*",
     "@sj-element/theme": "workspace:*",
     "@sj-element/utils": "workspace:*",
-    "@sj-element/locale": "workspace:*",
     "@sj-element/vite-plugins": "workspace:*",
     "@vitest/coverage-v8": "^1.6.1",
     "@vue/test-utils": "^2.4.6",
