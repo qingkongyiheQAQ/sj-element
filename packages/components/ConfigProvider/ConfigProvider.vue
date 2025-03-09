@@ -17,7 +17,6 @@ watch(() => props.locale, (newLocale) => {
   console.log("🔍 ConfigProvider 监听到 locale 变化:", newLocale);
 });
 
-console.log("🔍 ConfigProvider 提供的 locale:", props.locale);
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed,onMounted } from "vue";
 import { addUnit } from "@sj-element/utils";
 import { useLocale } from "@sj-element/hooks";
 import type { TooltipInstance } from "../Tooltip"; 
@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<PopconfirmProps>(), {
 const emits = defineEmits<PopconfirmEmits>();
 const tooltipRef = ref<TooltipInstance>();
 const style = computed(() => ({ width: addUnit(props.width) }));
-const {t}=useLocale();
+const locale =useLocale();
 
 
 function hidePopper() {
@@ -60,7 +60,7 @@ function cancel(e: MouseEvent) {
             :type="cancelButtonType"
             @click="cancel"
           >
-            {{ cancelButtonText || t("popconfirm.cancelButtonText") }}
+            {{ cancelButtonText || locale.t("popconfirm.cancelButtonText") }}
           </sj-button>
           <sj-button
             class="sj-popconfirm__confirm"
@@ -68,7 +68,7 @@ function cancel(e: MouseEvent) {
             :type="confirmButtonType"
             @click="confirm"
           >
-            {{ confirmButtonText || t("popconfirm.confirmButtonText") }}
+            {{ confirmButtonText || locale.t("popconfirm.confirmButtonText") }}
           </sj-button>
         </div>
       </div>

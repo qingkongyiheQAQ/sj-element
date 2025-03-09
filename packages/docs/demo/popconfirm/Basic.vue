@@ -23,7 +23,7 @@ const changelang = () => {
     >change language</sj-button
   >
   <sj-config-provider :locale="locale">
-    <sj-popconfirm title="Are you shure to delete this item?">
+    <sj-popconfirm title="Are you sure to delete this item?">
       <sj-button>Delete</sj-button>
     </sj-popconfirm>
   </sj-config-provider>
