@@ -31,16 +31,16 @@ const type = computed(()=>ctx?.type??props?.type??"")
 const disabled = computed(()=>ctx?.disabled||props?.disabled||false)
 const emits=defineEmits<ButtonEmits>();
 const iconStyle = computed(() => ({
-  marginRight: slots.default ? "6px" : "0px",//slots.default 代表默认插槽（即用户传入的内容）
+  marginRight: slots.default ? "6px" : "0px",
 }));
 const loadingIcon = computed(() => props.loadingIcon ?? "spinner");
-//不节流点击
+
 const handleBtnClick=(e:MouseEvent)=>emits('click',e);
-// 节流点击
+// 关闭 trailing 触发，即节流间隔结束后不会额外执行一次。
 const handleBtnClickThrottle = throttle(
   handleBtnClick,
   props.throttleDuration,
-  { trailing: false } //节流间隔结束后不会额外执行。
+  { trailing: false }
 );
 
 defineExpose<ButtonInstance>({
@@ -54,12 +54,10 @@ defineExpose<ButtonInstance>({
 </script>
 
 <template>
-  <!-- :is="tag" 让按钮组件可以变成 <button>、<a>、<div> 等不同标签 -->
-    <!-- 只有为button时才需要设置type 否则可能会影响表单提交 默认type是submit -->
   <component
     ref="_ref"
     class="sj-button"
-    :is="tag" 
+    :is="tag"
     :autofocus="autofocus"
     :type="tag === 'button' ? nativeType : void 0"
     :disabled="disabled || loading ? true : void 0"
@@ -77,7 +75,6 @@ defineExpose<ButtonInstance>({
   <template v-if="loading">
     <!-- 提供一个 具名插槽，允许父组件传入自定义 loading 图标。 -->
       <slot name="loading">
-        <!-- 如果父组件没有提供 slot="loading"，就显示 sj-icon 作为默认 loading 图标。 -->
         <sj-icon
           class="loading-icon"
           :icon="loadingIcon"
