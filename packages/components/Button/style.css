@@ -31,19 +31,19 @@
   color: var(--sj-button-text-color);
   text-align: center;
   box-sizing: border-box;
-  outline: none;
+  outline: none;  /*去掉默认的 focus 边框*/
   transition: 0.1s;
   font-weight: var(--sj-button-font-weight);
-  user-select: none;
+  user-select: none;  /*禁止用户选中文字*/
   vertical-align: middle;
-  -webkit-appearance: none;
+  -webkit-appearance: none; /*去掉浏览器默认的按钮样式*/
   background-color: var(--sj-button-bg-color);
   border: var(--sj-border);
   border-color: var(--sj-button-border-color);
   padding: 8px 15px;
   font-size: var(--sj-font-size-base);
   border-radius: var(--sj-border-radius-base);
-
+/* 选中紧邻的 .sj-button，并为其设置 margin-left: 12px; */
   &+& {
     margin-left: 12px;
   }
@@ -86,6 +86,7 @@
   &.is-disabled,
   &.is-disabled:hover,
   &.is-disabled:focus,
+    /* [disabled] 表示当前元素具有 disabled 属性时的样式。 */
   &[disabled],
   &[disabled]:hover,
   &[disabled]:focus {
@@ -95,7 +96,7 @@
     background-color: var(--sj-button-disabled-bg-color);
     border-color: var(--sj-button-disabled-border-color);
   }
-
+ /* 选中所有 class 名包含 sj-icon 的元素 */
   [class*='sj-icon'] {
     width: 1em;
     height: 1em;
@@ -108,66 +109,66 @@
     --sj-button-bg-color: var(--sj-color-$(
         val)
     );
+    --sj-button-border-color: var(--sj-color-$(
+        val)
+    );
+  --sj-button-outline-color: var(--sj-color-$(
+      val)-light-5
+  );
+  --sj-button-active-color: var(--sj-color-$(
+      val)-dark-2
+  );
+  --sj-button-hover-text-color: var(--sj-color-white);
+  --sj-button-hover-bg-color: var(--sj-color-$(
+      val)-light-3
+  );
+  --sj-button-hover-border-color: var(--sj-color-$(
+      val)-light-3
+  );
+  --sj-button-active-bg-color: var(--sj-color-$(
+      val)-dark-2
+  );
+  --sj-button-active-border-color: var(--sj-color-$(
+      val)-dark-2
+  );
+  --sj-button-disabled-text-color: var(--sj-color-white);
+  --sj-button-disabled-bg-color: var(--sj-color-$(
+      val)-light-5
+  );
+  --sj-button-disabled-border-color: var(--sj-color-$(
+      val)-light-5
+  );
+  }
+
+  .sj-button--$(val).is-plain {
+    --sj-button-text-color: var(--sj-color-$(
+        val)
+    );
+  --sj-button-bg-color: var(--sj-color-$(
+      val)-light-9
+  );
   --sj-button-border-color: var(--sj-color-$(
+      val)-light-5
+  );
+  --sj-button-hover-text-color: var(--sj-color-white);
+  --sj-button-hover-bg-color: var(--sj-color-$(
       val)
   );
---sj-button-outline-color: var(--sj-color-$(
-    val)-light-5
-);
---sj-button-active-color: var(--sj-color-$(
-    val)-dark-2
-);
---sj-button-hover-text-color: var(--sj-color-white);
---sj-button-hover-bg-color: var(--sj-color-$(
-    val)-light-3
-);
---sj-button-hover-border-color: var(--sj-color-$(
-    val)-light-3
-);
---sj-button-active-bg-color: var(--sj-color-$(
-    val)-dark-2
-);
---sj-button-active-border-color: var(--sj-color-$(
-    val)-dark-2
-);
---sj-button-disabled-text-color: var(--sj-color-white);
---sj-button-disabled-bg-color: var(--sj-color-$(
-    val)-light-5
-);
---sj-button-disabled-border-color: var(--sj-color-$(
-    val)-light-5
-);
-}
-
-.sj-button--$(val).is-plain {
-  --sj-button-text-color: var(--sj-color-$(
+  --sj-button-hover-border-color: var(--sj-color-$(
       val)
   );
---sj-button-bg-color: var(--sj-color-$(
-    val)-light-9
-);
---sj-button-border-color: var(--sj-color-$(
-    val)-light-5
-);
---sj-button-hover-text-color: var(--sj-color-white);
---sj-button-hover-bg-color: var(--sj-color-$(
-    val)
-);
---sj-button-hover-border-color: var(--sj-color-$(
-    val)
-);
---sj-button-active-text-color: var(--sj-color-white);
+  --sj-button-active-text-color: var(--sj-color-white);
 
---sj-button-disabled-text-color: var(--sj-color-$(
-    val)-light-5
-);
---sj-button-disabled-bg-color: var(--sj-color-$(
-    val)-light-9
-);
---sj-button-disabled-border-color: var(--sj-color-$(
-    val)-light-8
-);
-}
+  --sj-button-disabled-text-color: var(--sj-color-$(
+      val)-light-5
+  );
+  --sj-button-disabled-bg-color: var(--sj-color-$(
+      val)-light-9
+  );
+  --sj-button-disabled-border-color: var(--sj-color-$(
+      val)-light-8
+  );
+  }
 }
 
 .sj-button--large {
@@ -206,7 +207,7 @@
 .sj-button-group {
   display: inline-block;
   vertical-align: middle;
-
+/* 清除浮动 */
   &::after {
     clear: both;
   }
@@ -216,7 +217,7 @@
     position: relative;
     margin-left: 0;
 
-    &:first-child {
+    &:first-child { /*去掉右侧圆角，防止按钮之间有圆角缝隙。*/
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-right-color: var(--sj-button-group-border-color);
@@ -227,18 +228,18 @@
       border-bottom-left-radius: 0;
       border-left-color: var(--sj-button-group-border-color);
     }
-
+/* 中间按钮应该是矩形 */
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
 
       border-left-color: var(--sj-button-group-border-color);
       border-right-color: var(--sj-button-group-border-color);
     }
-
+/* 让按钮之间的 border 重叠，避免双层边框 */
     &:not(:last-child) {
       margin-right: -1px;
     }
-
+/* 如果 ButtonGroup 里只有一个按钮，它应该保持普通按钮的样式，不应该变成长条形。 */
     &:first-child:last-child {
       border-top-right-radius: var(--sj-border-radius-base);
       border-bottom-right-radius: var(--sj-border-radius-base);

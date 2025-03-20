@@ -31,8 +31,8 @@ const open4 = () => {
 </script>
 
 <template>
-  <er-button :plain="true" @click="open1">Message</er-button>
-  <er-button :plain="true" @click="open2">Success</er-button>
-  <er-button :plain="true" @click="open3">Warning</er-button>
-  <er-button :plain="true" @click="open4">Error</er-button>
+  <sj-button :plain="true" @click="open1">Message</sj-button>
+  <sj-button :plain="true" @click="open2">Success</sj-button>
+  <sj-button :plain="true" @click="open3">Warning</sj-button>
+  <sj-button :plain="true" @click="open4">Error</sj-button>
 </template>

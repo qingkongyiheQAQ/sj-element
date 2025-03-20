@@ -77,7 +77,7 @@ function cancel(e: MouseEvent) {
     <template v-if="$slots.default" #default>
       <slot name="default"></slot>
     </template>
-
+<!-- <template #default> 表示“把这里的内容作为子组件（比如 sj-tooltip）的默认插槽 -->
     <template v-if="$slots.reference" #default>
       <slot name="reference"></slot>
     </template>

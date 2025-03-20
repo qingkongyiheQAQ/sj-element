@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<_TooltipProps>(), {
   trigger: "hover",
   transition: "fade",
   showTimeout: 0,
-  hideTimeout: 200,
+  hideTimeout: 200,//控制显示和隐藏的延时
 });
 
 const emits = defineEmits<TooltipEmits>();
@@ -84,18 +84,21 @@ let openDebounce: DebouncedFunc<() => void> | void;
 let closeDebounce: DebouncedFunc<() => void> | void;
 
 function openFinal() {
+  // 在打开 tooltip 前取消关闭防抖，并执行打开防抖。
   closeDebounce?.cancel();
   openDebounce?.();
 }
 
 function closeFinal() {
+  // 在关闭 tooltip 前取消打开防抖，并执行关闭防抖。
   openDebounce?.cancel();
   closeDebounce?.();
 }
 function togglePopper() {
+  // 根据当前可见状态切换调用 openFinal 或 closeFinal。
   visible.value ? closeFinal() : openFinal();
 }
-
+// 设置 tooltip 的显示状态，并发出 "visible-change" 事件，同时判断 props.disabled 来决定是否生效。
 function setVisible(val: boolean) {
   if (props.disabled) return;
   visible.value = val;
